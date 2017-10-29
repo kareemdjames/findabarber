@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS barbershops (
     street_address TEXT,
     city TEXT,
     state TEXT,
-    zip NUMBER,
-    rating NUMBER,
-    user_id INTEGER REFERENCES user(id)
+    zip INTEGER,
+    rating INTEGER,
+    user_id INTEGER REFERENCES users(id)
 );
