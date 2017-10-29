@@ -3,11 +3,11 @@ const db = require('../db/config');
 
 const User = {};
 
-User.findByUseName = userName => {
+User.findByUserName = userName => {
   return db.oneOrNone(`
     SELECT * FROM users
     WHERE username = $1 
-  ` [userName]);
+  `, [userName]);
 };
 
 User.create = user => {

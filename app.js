@@ -47,9 +47,16 @@ app.get('/', (req, res) => {
   });
 });
 
-// import barbershops routes
-const barbershopsRoutes = require('./routes/barbershops-ruotes');
-app.use('/barbershops', barbershopsRoutes);
+// barbershops routes
+// const barbershopsRoutes = require('./routes/barbershops-ruotes');
+// app.use('/barbershops', barbershopsRoutes);
+
+// auth routes
+const authRoutes = require('./routes/auth-routes');
+app.use('/auth', authRoutes);
+const userRoutes = require('./routes/user-routes');
+app.use('/user', userRoutes);
+
 
 // error handling
 app.use('*', (req, res) => {
