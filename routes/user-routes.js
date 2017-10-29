@@ -1,4 +1,4 @@
-// import dependecies
+// import dependencies
 const express = require('express');
 const userRoutes = express.Router();
 const usersController = require('../controllers/users-controller');
