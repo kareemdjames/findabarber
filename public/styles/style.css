@@ -4,9 +4,11 @@ body {
   box-sizing: border-box;
   max-width: 100vw;
   font-family: sans-serif;
-  background-image: url("../imgs/hightop.gif");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  /*background-image: url("../imgs/hightop.gif");*/
+  /*background-size: 100% 100%;*/
+  /*background-repeat: no-repeat;*/
 }
 
 header {
@@ -38,22 +40,81 @@ nav ul li a:hover {
 
 /*Index Page*/
 .title-wrap {
-  width: 80vw;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin: auto;
+  justify-content: center;
+  margin: 0 15%;
+}
+
+.title-wrap h1 {
+  font-size: 40px;
 }
 
 .btn-wrap {
+  flex: 1;
   display: flex;
   justify-content: space-around;
-  position: fixed;
-  bottom: 50px;
   width: 100%;
+  align-items: center;
+}
+
+.btn-wrap div {
+  flex: 1;
+  text-align: center;
+  border: 1px solid black;
+  margin: 0 20px;
+  border-radius: 8px;
+
 }
 
 .btn-wrap a {
-  border: 1px solid black;
-  flex: 1;
-  margin: 0 20px;
   text-align: center;
+  width: 100%;
 }
+
+.btn-wrap button {
+  font-size: 20px;
+  width: 100%;
+}
+
+.add {
+
+}
+
+
+form input[type=text], form input[type=number], form input[type=email], form input[type=password] {
+  border: 0;
+  border-bottom: 3px solid #eee;
+  font-size: 1.7em;
+  margin: 20px 0;
+  padding: 5px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+}
+
+form input[type=text]:focus, form input[type=number]:focus,
+form input[type=email]:focus, form input[type=password]:focus {
+  border-bottom: 3px solid blue;
+  outline: 0;
+}
+
+.add form input[type=submit], .edit form input[type=submit],
+.login form input[type=submit], .register form input[type=submit]  {
+  background-color: blue;
+  display: block;
+  margin: auto;
+  padding: 10px 30px;
+  font-size: 1.5em;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add form input[type=submit]:hover, .add form input[type=submit]:focus,
+.edit form input[type=submit]:hover, .edit form input[type=submit]:focus {
+  outline: 0;
+  background-color: blue;
