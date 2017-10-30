@@ -1,8 +1,20 @@
 <% include ../partials/boilerplate %>
 
-<div class="map">
 
-
+<div class="barbershops-container">
+<% barbershops.forEach(barbershop => { %>
+<div class="barbershop">
+    <div class="bsimg"></div>
+    <div class="bsinfo">
+        <p>name</p>
+        <p>rating</p>
+        <p>type address</p>
+        <p>open</p>
+    </div>
 </div>
+
+<% }) %>
+</div>
+
 
 <% include ../partials/end %>

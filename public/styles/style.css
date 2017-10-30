@@ -39,6 +39,7 @@ nav ul li a:hover {
 }
 
 /*Index Page*/
+
 .title-wrap {
   flex: 2;
   display: flex;
@@ -83,6 +84,17 @@ nav ul li a:hover {
 
 }
 
+/*Barbershops Index Page*/
+
+.barbershops-container {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 150px auto;
+  box-sizing: border-box;
+}
+
+
+/*forms on login and register pages*/
 
 form input[type=text], form input[type=number], form input[type=email], form input[type=password] {
   border: 0;
