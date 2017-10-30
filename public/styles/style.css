@@ -45,7 +45,7 @@ nav ul li a:hover {
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  margin: 0 15%;
+  margin: 0 10%;
 }
 
 .title-wrap h1 {
@@ -118,3 +118,4 @@ form input[type=email]:focus, form input[type=password]:focus {
 .edit form input[type=submit]:hover, .edit form input[type=submit]:focus {
   outline: 0;
   background-color: blue;
+}

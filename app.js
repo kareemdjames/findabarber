@@ -48,8 +48,8 @@ app.get('/', (req, res) => {
 });
 
 // barbershops routes
-// const barbershopsRoutes = require('./routes/barbershops-ruotes');
-// app.use('/barbershops', barbershopsRoutes);
+const barbershopRoutes = require('./routes/barbershop-routes');
+app.use('/barbershops', barbershopRoutes);
 
 // auth routes
 const authRoutes = require('./routes/auth-routes');
