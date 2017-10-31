@@ -79,6 +79,7 @@ barbershopController.update = (req, res) => {
   });
 };
 
+// Delete an existing Barbershop
 barbershopController.delete = (req, res) => {
   Barbershop.destroy(req.params.id)
     .then(() => {

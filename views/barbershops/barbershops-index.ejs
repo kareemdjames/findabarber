@@ -2,18 +2,20 @@
 
 
 <div class="barbershops-container">
-<% barbershops.forEach(barbershop => { %>
-<div class="barbershop">
-    <div class="bsimg"></div>
-    <div class="bsinfo">
-        <p><%= barbershop.name %></p>
-        <p>Rating: <%= barbershop.rating %></p>
-        <p>Address: <%= barbershop.street_address %></p>
-        <p><%= barbershop.city %>, <%= barbershop.state %>, <%= barbershop.zip %></p>
-    </div>
-</div>
+    <% barbershops.forEach(barbershop => { %>
+    <a href="/barbershops/<%= barbershop.id %>">
+        <div class="barbershop">
+            <div class="bsimg"></div>
+            <div class="bsinfo">
+                <p><%= barbershop.name %></p>
+                <p>Rating: <%= barbershop.rating %></p>
+                <p>Address: <%= barbershop.street_address %></p>
+                <p><%= barbershop.city %>, <%= barbershop.state %>, <%= barbershop.zip %></p>
+            </div>
+        </div>
+    </a>
 
-<% }) %>
+    <% }) %>
 </div>
 
 
