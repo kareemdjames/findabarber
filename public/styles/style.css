@@ -93,6 +93,15 @@ nav ul li a:hover {
   box-sizing: border-box;
 }
 
+/*Map*/
+
+#map {
+  flex: 1;
+  height: 100%;
+}
+#map-info {
+  flex: 1
+}
 
 /*forms on login and register pages*/
 

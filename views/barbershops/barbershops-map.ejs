@@ -1,0 +1,53 @@
+<% include ../partials/boilerplate %>
+
+<div id="map"></div>
+<div id="map-info"></div>
+
+<!--<script>-->
+  <!--let map;-->
+  <!--let infowindow;-->
+
+  <!--function initMap() {-->
+    <!--let pyrmont = {lat: -33.867, lng: 151.195};-->
+
+    <!--map = new google.maps.Map(document.getElementById('map'), {-->
+      <!--center: pyrmont,-->
+      <!--zoom: 15-->
+    <!--});-->
+
+    <!--infowindow = new google.maps.InfoWindow();-->
+    <!--let service = new google.maps.places.PlacesService(map);-->
+    <!--service.nearbySearch({-->
+      <!--location: pyrmont,-->
+      <!--radius: 500,-->
+      <!--type: ['barbershop']-->
+    <!--}, callback);-->
+  <!--}-->
+
+  <!--function callback(results, status) {-->
+    <!--if (status === google.maps.places.PlacesServiceStatus.OK) {-->
+      <!--for (let i = 0; i < results.length; i++) {-->
+        <!--createMarker(results[i]);-->
+        <!--console.log(results[i]);-->
+      <!--}-->
+    <!--}-->
+  <!--}-->
+
+  <!--function createMarker(place) {-->
+    <!--let placeLoc = place.geometry.location;-->
+    <!--let marker = new google.maps.Marker({-->
+      <!--map: map,-->
+      <!--position: place.geometry.location-->
+    <!--});-->
+
+    <!--google.maps.event.addListener(marker, 'click', function () {-->
+      <!--infowindow.setContent(place.name);-->
+      <!--infowindow.open(map, this);-->
+    <!--});-->
+  <!--}-->
+<!--</script>-->
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
+
+<% include ../partials/end %>
