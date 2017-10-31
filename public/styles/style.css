@@ -93,6 +93,12 @@ nav ul li a:hover {
   box-sizing: border-box;
 }
 
+.barbershop {
+  margin: 10px auto;
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding-left: 2px;
+}
 /*Map*/
 
 #map {
