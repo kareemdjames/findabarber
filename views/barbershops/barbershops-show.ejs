@@ -9,6 +9,12 @@
             <p>Address: <%= barbershop.street_address %></p>
             <p><%= barbershop.city %>, <%= barbershop.state %>, <%= barbershop.zip %></p>
         </div>
+        <div class="links">
+            <a href="/barbershops/<%=barbershop.id%>/edit">Edit</a>
+            <form method="POST" action="/barbershops/<%=barbershop.id%>?_method=DELETE">
+                <input type="submit" value="Delete" />
+            </form>
+        </div>
     </div></a>
 </div>
 

@@ -18,7 +18,7 @@ barbershopRouter.get('/map', (req, res) => {
 
 barbershopRouter.get('/:id', barbershopsController.show);
 barbershopRouter.get('/:id/edit', barbershopsController.edit);
-barbershopRouter.get('/:id', barbershopsController.update);
-barbershopRouter.get('/:id', barbershopsController.delete);
+barbershopRouter.put('/:id', barbershopsController.update);
+barbershopRouter.delete('/:id', barbershopsController.delete);
 
 module.exports = barbershopRouter;

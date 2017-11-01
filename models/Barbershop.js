@@ -16,22 +16,23 @@ Barbershop.findById = (id) => {
 Barbershop.create = (barbershop, userId) => {
   return db.one(`
     INSERT INTO barbershops
-    (street_address, city, state, zip, rating, user_id)
-    VALUES ($/street_address/, $/city/, $/state/, $/zip/, $/rating/, $/user_id/)
+    (name, street_address, city, state, zip, rating, user_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
     RETURNING *
-  `, [Barbershop.street_address, Barbershop.city, Barbershop.state, Barbershop.zip, Barbershop.rating, userId]);
+  `, [barbershop.name, barbershop.street_address, barbershop.city, barbershop.state, barbershop.zip, barbershop.rating, userId]);
 };
 
 Barbershop.update = (barbershop, barbershopId) => {
   return db.one(`
   UPDATE barbershops SET 
-  street_address = $/street_address/, 
-  city = $/city/, 
-  state = $/state/, 
-  zip = $/zip/, 
-  rating = $/rating/
-  WHERE id = $/barbershopId/
-  ` [Barbershop.street_address, Barbershop.city, Barbershop.state, Barbershop.zip, Barbershop.rating, barbershopId])
+  street_address = $1, 
+  city = $2, 
+  state = $3, 
+  zip = $4, 
+  rating = $5
+  WHERE id = $6
+  RETURNING *
+  `, [barbershop.street_address, barbershop.city, barbershop.state, barbershop.zip, barbershop.rating, barbershopId])
 };
 
 Barbershop.destroy = (id) => {
