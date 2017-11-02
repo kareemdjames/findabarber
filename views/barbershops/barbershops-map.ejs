@@ -28,6 +28,7 @@
     // Create infowindow for results
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
+
     service.textSearch({
       location: bronx,
       radius: 500,
@@ -61,10 +62,31 @@
                    `
 
     google.maps.event.addListener(marker, 'click', function () {
-      console.log(marker.id);
+      let id = marker.id;
       infowindow.setContent(content);
       infowindow.open(map, this);
+      markerDetails(id);
     });
+
+    // Get marker details
+    function markerDetails(id) {
+
+      var request = {
+        placeId: id
+      };
+
+      service = new google.maps.places.PlacesService(map);
+      service.getDetails(request, callback);
+
+      function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          console.log(place.formatted_address);
+          document.getElementById('map-info').innerHTML = place.formatted_address;
+
+        }
+      }
+    }
+
 
 
   }

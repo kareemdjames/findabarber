@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+const axios = require('axios');
 
 // initialize app
 const app = express();
