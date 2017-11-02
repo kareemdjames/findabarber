@@ -4,11 +4,10 @@
     </div>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/barbershops">Barbershops</a></li>
+            <li><a href="/barbershops">Home</a></li>
+            <li><a href="/barbershops/map">Map</a></li>
             <li><a href="/barbershops/new">New</a></li>
             <% if (auth) { %>
-            <li><a href="/user">Dashboard</a><li>
             <li><a href="/auth/logout">Logout</a></li>
             <% } else { %>
             <li><a href="/auth/register">Register</a></li>

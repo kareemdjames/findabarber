@@ -9,11 +9,15 @@ barbershopRouter.post('/', authHelpers.loginRequired, barbershopsController.crea
 
 // create new page route
 barbershopRouter.get('/new', authHelpers.loginRequired, (req, res) => {
-  res.render('barbershops/barbershops-new');
+  res.render('barbershops/barbershops-new', {
+    auth: (req.user) ? true : false,
+  });
 });
 // map route
 barbershopRouter.get('/map', (req, res) => {
-  res.render('barbershops/barbershops-map');
+  res.render('barbershops/barbershops-map', {
+    auth: (req.user) ? true : false,
+  });
 });
 
 barbershopRouter.get('/:id', barbershopsController.show);

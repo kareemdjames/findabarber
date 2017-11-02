@@ -28,6 +28,7 @@ usersController.index = (req, res) => {
   res.render('barbershops/barbershops-index', {
       user: req.user,
       barbershops: barbershops,
+      auth: (req.user) ? true : false,
   }).catch(err => {
     console.log(err);
     res.status(500).json({err: err});

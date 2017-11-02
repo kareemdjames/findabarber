@@ -1,17 +1,10 @@
 <% include ../partials/boilerplate %>
+<% include ../partials/nav %>
 
 <div id="map"></div>
 <div id="map-info">
   <div id="info-output"></div>
 </div>
-
-
-
-
-
-
-
-
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ8B6mUBvNH4oSrqQtDopTMO-JcGnZPOQ&libraries=places&callback=initMap"
         async defer></script>
@@ -60,13 +53,14 @@
       id: placeId
     });
 
-    let content = `${place.name}
+    // Content for infowindow
+    let content = ` Name: ${place.name}
                    <br>
-                   ${place.rating}
+                   Rating: ${place.rating}
                    <br>
-                   ${place.formatted_address}
+                   Address: ${place.formatted_address}
                    `
-
+    // Onclick listener for when you click on the location pin
     google.maps.event.addListener(marker, 'click', function () {
       let id = marker.id;
       infowindow.setContent(content);
@@ -88,6 +82,8 @@
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           console.log(place.rating);
           let ac = place.address_components;
+
+          // Hidden form to add location to favorites
           let str = `
             <form method="POST" action="/barbershops">
                 <input type="hidden" name="name" value="${place.name}" />

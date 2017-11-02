@@ -6,9 +6,6 @@ body {
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
-  /*background-image: url("../imgs/hightop.gif");*/
-  /*background-size: 100% 100%;*/
-  /*background-repeat: no-repeat;*/
 }
 
 header {
@@ -40,6 +37,19 @@ nav ul li a:hover {
 
 /*Index Page*/
 
+.index-wrap {
+  min-height: 100vh;
+  line-height: 1.4em;
+  box-sizing: border-box;
+  max-width: 100vw;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../imgs/hightop.gif");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 .title-wrap {
   flex: 2;
   display: flex;
@@ -51,8 +61,13 @@ nav ul li a:hover {
 
 .title-wrap h1 {
   font-size: 40px;
+  text-shadow: 2px 2px white;
 }
 
+.title-wrap p {
+  text-shadow: 2px 2px #ff0000;
+  font-size: 20px;
+}
 .btn-wrap {
   flex: 1;
   display: flex;
@@ -67,6 +82,7 @@ nav ul li a:hover {
   border: 1px solid black;
   margin: 0 20px;
   border-radius: 8px;
+  box-shadow: 10px 10px 3px #888888;
 
 }
 
@@ -78,10 +94,21 @@ nav ul li a:hover {
 .btn-wrap button {
   font-size: 20px;
   width: 100%;
+  text-shadow: 2px 2px #ff0000;
 }
 
 
 /*Barbershops Index Page*/
+
+#newbtn {
+  align-self: center;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+#newbtn:hover {
+  background: red;
+}
 
 .barbershops-container {
   width: 80vw;
@@ -102,6 +129,9 @@ nav ul li a:hover {
   padding-left: 2px;
 }
 
+.barbershop:hover {
+  background: red;
+}
 /*Map*/
 
 #map {

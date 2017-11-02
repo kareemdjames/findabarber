@@ -23,6 +23,7 @@ barbershopController.show = (req, res) => {
       res.render('barbershops/barbershops-show', {
         barbershop: barbershop,
         isShow: true,
+        auth: (req.user) ? true : false,
       });
     }).catch(err => {
     console.log(err);
@@ -54,6 +55,7 @@ barbershopController.edit = (req, res) => {
     .then(barbershop => {
       res.render('barbershops/barbershops-edit', {
         barbershop: barbershop,
+        auth: (req.user) ? true : false,
       })
     }).catch(err => {
     console.log(err);

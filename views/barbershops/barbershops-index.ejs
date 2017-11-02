@@ -1,6 +1,7 @@
 <% include ../partials/boilerplate %>
+<% include ../partials/nav %>
 
-<a href="/barbershops/new"><button>Add New Barbershop</button></a>
+<a id="newbtn" href="/barbershops/new"><button>Add New Barbershop</button></a>
 <div class="barbershops-container">
     <% barbershops.forEach(barbershop => { %>
     <a href="/barbershops/<%= barbershop.id %>">
