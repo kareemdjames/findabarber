@@ -1,4 +1,4 @@
-INSERT INTO barbershops () VALUES
+INSERT INTO barbershops (name, street_address, city, state, zip, rating) VALUES
 ('The Best Shop', '864 E. 231st Street', 'Bronx', 'NY', 10466, 5),
 ('The Best Shop2', '864 E. 231st Street', 'Bronx2', 'NY', 10466, 4),
 ('The Best Shop3', '864 E. 231st Street', 'Bronx3', 'NY', 10466, 3),
