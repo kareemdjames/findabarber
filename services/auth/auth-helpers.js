@@ -8,7 +8,7 @@ function comparePass(userPassword, databasePassword) {
 
 // redirect to user if successful
 function loginRedirect(req, res, next) {
-  if (req.user) return res.redirect('/user');
+  if (req.user) return res.redirect('/barbershops/map');
   return next();
 }
 

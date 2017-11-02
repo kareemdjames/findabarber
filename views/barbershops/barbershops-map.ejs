@@ -1,14 +1,20 @@
 <% include ../partials/boilerplate %>
 
 <div id="map"></div>
-<div id="map-info"></div>
+<div id="map-info">
+  <div id="info-output"></div>
+</div>
+
+
+
+
+
+
+
+
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ8B6mUBvNH4oSrqQtDopTMO-JcGnZPOQ&libraries=places&callback=initMap"
         async defer></script>
-
-
-
-
-
 <script>
   // Variables
   var map;
@@ -80,15 +86,24 @@
 
       function callback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-          console.log(place.formatted_address);
-          document.getElementById('map-info').innerHTML = place.formatted_address;
+          console.log(place.rating);
+          let ac = place.address_components;
+          let str = `
+            <form method="POST" action="/barbershops">
+                <input type="hidden" name="name" value="${place.name}" />
+                <input type="hidden" name="street_address" value="${ac[0].short_name} ${ac[1].short_name}" />
+                <input type="hidden" name="city" value="${ac[3].short_name}" />
+                <input type="hidden" name="state" value="${ac[5].short_name}" />
+                <input type="hidden" name="zip" value="${ac[7].short_name}" />
+                <input type="hidden" name="rating" value="${parseInt(place.rating)}" />
+                <input type="submit" value="Add to Favorites" />
+            </form>
+          `;
+          document.getElementById('info-output').innerHTML = place.formatted_address + str;
 
         }
       }
     }
-
-
-
   }
 </script>
 
