@@ -39,8 +39,7 @@ barbershopController.create = (req, res) => {
     state: req.body.state,
     zip: req.body.zip,
     rating: req.body.rating,
-  })
-    .then(barbershop => {
+  }, req.user.id).then(barbershop => {
       res.redirect(`/barbershops/${barbershop.id}`);
     })
     .catch(err => {

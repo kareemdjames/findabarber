@@ -80,16 +80,13 @@ nav ul li a:hover {
   width: 100%;
 }
 
-.add {
-
-}
 
 /*Barbershops Index Page*/
 
 .barbershops-container {
   width: 80vw;
   max-width: 1000px;
-  margin: 150px auto;
+  margin: 10px auto;
   box-sizing: border-box;
 }
 

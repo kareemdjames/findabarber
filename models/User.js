@@ -19,4 +19,11 @@ User.create = user => {
   `, [user.username, user.password_digest, user.email]);
 };
 
+User.findUserBarbershops = id => {
+  return db.manyOrNone(`
+    SELECT * FROM barbershops
+    WHERE user_id = $1
+  `, [id]);
+};
+
 module.exports = User;

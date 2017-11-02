@@ -2,52 +2,72 @@
 
 <div id="map"></div>
 <div id="map-info"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ8B6mUBvNH4oSrqQtDopTMO-JcGnZPOQ&libraries=places&callback=initMap"
+        async defer></script>
 
-<!--<script>-->
-  <!--let map;-->
-  <!--let infowindow;-->
 
-  <!--function initMap() {-->
-    <!--let pyrmont = {lat: -33.867, lng: 151.195};-->
 
-    <!--map = new google.maps.Map(document.getElementById('map'), {-->
-      <!--center: pyrmont,-->
-      <!--zoom: 15-->
-    <!--});-->
 
-    <!--infowindow = new google.maps.InfoWindow();-->
-    <!--let service = new google.maps.places.PlacesService(map);-->
-    <!--service.nearbySearch({-->
-      <!--location: pyrmont,-->
-      <!--radius: 500,-->
-      <!--type: ['barbershop']-->
-    <!--}, callback);-->
-  <!--}-->
 
-  <!--function callback(results, status) {-->
-    <!--if (status === google.maps.places.PlacesServiceStatus.OK) {-->
-      <!--for (let i = 0; i < results.length; i++) {-->
-        <!--createMarker(results[i]);-->
-        <!--console.log(results[i]);-->
-      <!--}-->
-    <!--}-->
-  <!--}-->
+<script>
+  // Variables
+  var map;
+  var infowindow;
 
-  <!--function createMarker(place) {-->
-    <!--let placeLoc = place.geometry.location;-->
-    <!--let marker = new google.maps.Marker({-->
-      <!--map: map,-->
-      <!--position: place.geometry.location-->
-    <!--});-->
+  // Initialize Map
 
-    <!--google.maps.event.addListener(marker, 'click', function () {-->
-      <!--infowindow.setContent(place.name);-->
-      <!--infowindow.open(map, this);-->
-    <!--});-->
-  <!--}-->
-<!--</script>-->
+  function initMap() {
+    var bronx = {lat: 40.8448, lng: -73.8648};
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    // Display the map in a div
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: bronx,
+      zoom: 15
+    });
 
+    // Create infowindow for results
+    infowindow = new google.maps.InfoWindow();
+    var service = new google.maps.places.PlacesService(map);
+    service.textSearch({
+      location: bronx,
+      radius: 500,
+      query: ['barbershop']
+    }, callback);
+  }
+  // Gets Results
+  function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+        console.log(results[i])
+      }
+    }
+  }
+  // Create Marker from results
+  function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var placeId = place.place_id;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: placeLoc,
+      id: placeId
+    });
+
+    let content = `${place.name}
+                   <br>
+                   ${place.rating}
+                   <br>
+                   ${place.formatted_address}
+                   `
+
+    google.maps.event.addListener(marker, 'click', function () {
+      console.log(marker.id);
+      infowindow.setContent(content);
+      infowindow.open(map, this);
+    });
+
+
+  }
+</script>
 
 <% include ../partials/end %>

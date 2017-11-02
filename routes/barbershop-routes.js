@@ -5,10 +5,10 @@ const barbershopsController = require('../controllers/barbershops-controller');
 const authHelpers = require('../services/auth/auth-helpers');
 
 barbershopRouter.get('/', barbershopsController.index);
-barbershopRouter.post('/', barbershopsController.create);
+barbershopRouter.post('/', authHelpers.loginRequired, barbershopsController.create);
 
 // create new page route
-barbershopRouter.get('/new', (req, res) => {
+barbershopRouter.get('/new', authHelpers.loginRequired, (req, res) => {
   res.render('barbershops/barbershops-new');
 });
 // map route
@@ -17,8 +17,8 @@ barbershopRouter.get('/map', (req, res) => {
 });
 
 barbershopRouter.get('/:id', barbershopsController.show);
-barbershopRouter.get('/:id/edit', barbershopsController.edit);
-barbershopRouter.put('/:id', barbershopsController.update);
-barbershopRouter.delete('/:id', barbershopsController.delete);
+barbershopRouter.get('/:id/edit', authHelpers.loginRequired, barbershopsController.edit);
+barbershopRouter.put('/:id', authHelpers.loginRequired, barbershopsController.update);
+barbershopRouter.delete('/:id', authHelpers.loginRequired, barbershopsController.delete);
 
 module.exports = barbershopRouter;

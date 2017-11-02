@@ -22,4 +22,4 @@ module.exports = {
   comparePass,
   loginRedirect,
   loginRequired,
-}
+};

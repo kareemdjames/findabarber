@@ -25,11 +25,12 @@ usersController.create = (req, res) => {
 
 //redirect to user profile page or wherever else
 usersController.index = (req, res) => {
-  res.json({
-    message: 'Put a user profile page on this route',
-    data: {
+  res.render('barbershops/barbershops-index', {
       user: req.user,
-    },
+      barbershops: barbershops,
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({err: err});
   });
 };
 
